@@ -64,5 +64,4 @@ struct cpu_info {
 * `void print_r()` - ***NOT IMPLEMENTED YET***
 * `int32 count_chars(const std::string& str, const char& ch)` - ***NOT IMPLEMENTED YET***
 * `memory_info get_memory_info()` - ***PARTIALLY IMPLEMENTED (OSX)***
-* `memory_info get_memory_info()` - ***PARTIALLY IMPLEMENTED (OSX)***
 * `cpu_info get_cpu_info()` - ***PARTIALLY IMPLEMENTED (OSX)***
