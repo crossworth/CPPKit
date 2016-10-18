@@ -46,6 +46,7 @@ int main(int argc, char** argv) {
     cout << "CPU USAGE" << endl;
     cout << "CPU Usage: " << Kit::get_cpu_info().cpu_usage << "%" << endl;
 
+    cout << "Unique ID: " << Kit::uniqid() << endl;
 
     return 0;
 }

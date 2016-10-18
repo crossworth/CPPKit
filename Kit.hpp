@@ -6,6 +6,8 @@
 #include <sstream>
 #include <iostream>
 #include <algorithm>
+#include <ctime>
+#include <random>
 
 #ifdef _WIN32
     #include "windows.h"
@@ -169,9 +171,40 @@ int64 gigabytes_to_megabytes(int64 gigas) {
     return (gigas * 1000);
 }
 
-int64 uniqid() {
+std::string get_current_date_string() {
+    time_t rawtime;
+    struct tm * timeinfo;
+    char buffer[80];
+    time (&rawtime);
+    timeinfo = localtime(&rawtime);
+    strftime(buffer,80,"%d-%m-%Y %I:%M:%S",timeinfo);
+    std::string str(buffer);
+    return str;
+}
 
-    return 0;
+std::string random_string( size_t length )
+{
+    auto randchar = []() -> char
+    {
+        std::random_device rd; //this is true randomness instead of rand()
+        const char charset[] =
+            "0123456789"
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            "abcdefghijklmnopqrstuvwxyz";
+        const size_t max_index = (sizeof(charset) - 1);
+        return charset[ rd() % max_index ];
+    };
+    std::string str(length,0);
+    std::generate_n( str.begin(), length, randchar );
+    return str;
+}
+
+int64 uniqid() {
+    std::hash<std::string> h;
+    std::string str = random_string(5) + get_current_date_string();
+    std::cout<< str<<"\n";
+    int64 value = llabs(h(str));
+    return value;
 }
 
 void print_r();

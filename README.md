@@ -60,7 +60,7 @@ struct cpu_info {
 * `int64 gigabytes_to_bytes(int64 gigas)`
 * `int64 gigabytes_to_kilobytes(int64 gigas)`
 * `int64 gigabytes_to_megabytes(int64 gigas)`
-* `int64 uniqid()` - ***NOT IMPLEMENTED YET***
+* `int64 uniqid()`
 * `void print_r()` - ***NOT IMPLEMENTED YET***
 * `int32 count_chars(const std::string& str, const char& ch)` - ***NOT IMPLEMENTED YET***
 * `memory_info get_memory_info()` - ***PARTIALLY IMPLEMENTED (OSX)***
